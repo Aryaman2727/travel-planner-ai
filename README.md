@@ -2,14 +2,14 @@
 
 > Full-stack assessment submission for Trao Engineering
 
-A multi-user AI travel planner that generates personalized day-by-day itineraries, budget breakdowns, hotel recommendations, packing lists, and insider tips — powered by Claude (Anthropic).
+A multi-user AI travel planner that generates personalized day-by-day itineraries, budget breakdowns, hotel recommendations, packing lists, and insider tips — powered by graq .
 
 ---
 
 ## Live Demo
 
-- **Frontend**: `[deployed URL]`
-- **Backend API**: `[deployed API URL]`
+- **Frontend**: `https://travel-planner-ai-lemon.vercel.app`
+- **Backend API**: `https://travel-planner-ai-production-85ab.up.railway.app`
 - **Walkthrough Video**: `[video link]`
 
 ---
@@ -42,7 +42,7 @@ A multi-user AI travel planner that generates personalized day-by-day itinerarie
                            └──────────────────┘
 ```
 
-The frontend and backend are deployed as separate services. The frontend calls the backend REST API. The backend calls Anthropic's API for AI generation.
+The frontend and backend are deployed as separate services. The frontend calls the backend REST API. The backend calls Graq's API for AI generation.
 
 ---
 
@@ -58,7 +58,7 @@ The frontend and backend are deployed as separate services. The frontend calls t
 
 ## AI Agent Design
 
-The AI service (`backend/src/services/ai.service.js`) uses structured prompting to generate complete trip data in a single Claude API call:
+The AI service (`backend/src/services/ai.service.js`) uses structured prompting to generate complete trip data in a single Graq API call:
 
 1. **Full generation** (`/api/ai/generate/:tripId`): Generates itinerary, budget, hotels, packing list, and local tips in one shot. Returns strict JSON via prompt engineering (no tools/function calling needed for this use case).
 
@@ -117,7 +117,7 @@ npm run dev
 cd frontend
 npm install
 cp .env.example .env.local
-# Set NEXT_PUBLIC_API_URL=http://localhost:5000/api
+# Set NEXT_PUBLIC_API_URL=http://travel-planner-ai-production-85ab.up.railway.app/api
 npm run dev
 ```
 
@@ -148,20 +148,20 @@ PORT=5000
 MONGODB_URI=mongodb+srv://...
 JWT_SECRET=...
 ANTHROPIC_API_KEY=sk-ant-...
-FRONTEND_URL=https://your-frontend.vercel.app
+FRONTEND_URL=https://travel-planner-ai-lemon.vercel.app
 NODE_ENV=production
 ```
 
 **Frontend** (`.env.local`):
 ```
-NEXT_PUBLIC_API_URL=https://your-backend.railway.app/api
+NEXT_PUBLIC_API_URL=https://travel-planner-ai-production-85ab.up.railway.app
 ```
 
 ---
 
 ## Known Limitations
 
-- AI generation takes 10-20 seconds (Claude generating ~8000 tokens). A loading screen is shown during this time.
+- AI generation takes 10-20 seconds (Graq generating ~8000 tokens). A loading screen is shown during this time.
 - No streaming support yet — the entire itinerary arrives at once.
 - Rate limited to 20 AI calls/hour per IP (to control API costs).
 - No email verification on registration (demo scope).
@@ -178,7 +178,7 @@ travel-planner/
 │   │   ├── middleware/      # Auth, error handling
 │   │   ├── models/          # Mongoose schemas
 │   │   ├── routes/          # Express routers
-│   │   ├── services/        # AI service (Claude integration)
+│   │   ├── services/        # AI service (Graq integration)
 │   │   ├── utils/           # DB connection
 │   │   ├── app.js           # Express app setup
 │   │   └── server.js        # Entry point
