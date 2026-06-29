@@ -10,7 +10,7 @@ A multi-user AI travel planner that generates personalized day-by-day itinerarie
 
 - **Frontend**: `https://travel-planner-ai-lemon.vercel.app`
 - **Backend API**: `https://travel-planner-ai-production-85ab.up.railway.app`
-- **Walkthrough Video**: `[video link]`
+- **Walkthrough Video**: `https://drive.google.com/file/d/1znJPoNKr5GIHX6NkYEfI90KIdRh_ktey/view?usp=drivesdk`
 
 ---
 
@@ -37,8 +37,7 @@ A multi-user AI travel planner that generates personalized day-by-day itinerarie
                                     │
                                     ▼
                            ┌──────────────────┐
-                           │  Anthropic API    │
-                           │  claude-sonnet-4-6│
+                           │  graq API    │
                            └──────────────────┘
 ```
 
