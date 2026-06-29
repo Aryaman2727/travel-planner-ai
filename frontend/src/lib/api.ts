@@ -3,7 +3,7 @@ import axios from 'axios';
 const API_URL = 'https://travel-planner-ai-production-85ab.up.railway.app/api';
 
 const api = axios.create({
-const API_URL = 'https://travel-planner-ai-production-85ab.up.railway.app/api';
+baseURL: API_URL,
   timeout: 60000, // 60s for AI generation
   headers: { 'Content-Type': 'application/json' },
 });
