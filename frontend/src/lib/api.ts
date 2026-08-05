@@ -35,23 +35,23 @@ api.interceptors.response.use(
 // Auth
 export const authAPI = {
   register: (data: { name: string; email: string; password: string }) =>
-    api.post('/auth/register', data),
+    api.post('/api/auth/register', data),
   login: (data: { email: string; password: string }) =>
-    api.post('/auth/login', data),
-  me: () => api.get('/auth/me'),
+    api.post('/api/auth/login', data),
+  me: () => api.get('/api/auth/me'),
   updateMe: (data: { name?: string; avatar?: string }) =>
-    api.patch('/auth/me', data),
+    api.patch('/api/auth/me', data),
 };
 
 // Trips
 export const tripsAPI = {
-  list: () => api.get('/trips'),
-  get: (id: string) => api.get(`/trips/${id}`),
-  create: (data: any) => api.post('/trips', data),
-  update: (id: string, data: any) => api.patch(`/trips/${id}`, data),
-  delete: (id: string) => api.delete(`/trips/${id}`),
+  list: () => api.get('/api/trips'),
+  get: (id: string) => api.get(`/api/trips/${id}`),
+  create: (data: any) => api.post('/api/trips', data),
+  update: (id: string, data: any) => api.patch(`/api/trips/${id}`, data),
+  delete: (id: string) => api.delete(`/api/trips/${id}`),
   updateActivity: (tripId: string, dayIndex: number, data: any) =>
-    api.patch(`/trips/${tripId}/itinerary/${dayIndex}/activities`, data),
+    api.patch(`/api/trips/${tripId}/itinerary/${dayIndex}/activities`, data),
 };
 
 // AI
