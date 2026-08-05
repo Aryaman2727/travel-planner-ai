@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://travel-planner-ai-production-85ab.up.railway.app/api';
+const API_URL = 'https://travel-planner-ai-vorm.onrender.com';
 
 const api = axios.create({
 baseURL: API_URL,
