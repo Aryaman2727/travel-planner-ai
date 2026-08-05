@@ -56,9 +56,9 @@ export const tripsAPI = {
 
 // AI
 export const aiAPI = {
-  generate: (tripId: string) => api.post(`/ai/generate/${tripId}`),
+  generate: (tripId: string) => api.post(`/api/ai/generate/${tripId}`),
   regenerateDay: (tripId: string, data: { dayNumber: number; userRequest?: string }) =>
-    api.post(`/ai/regenerate-day/${tripId}`, data),
+    api.post(`/api/ai/regenerate-day/${tripId}`, data),
 };
 
 export default api;
